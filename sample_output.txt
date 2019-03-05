@@ -1,0 +1,27 @@
+TOKENS       LEXEMES                 
+
+KEYWORD      int                     
+IDENTIFIER   num                     
+SEPERATOR    ,                       
+IDENTIFIER   num                     
+SEPERATOR    ,                       
+IDENTIFIER   large$                  
+KEYWORD      if                      
+SEPERATOR    (                       
+IDENTIFIER   num                     
+OPERATOR     >                       
+IDENTIFIER   num                     
+SEPERATOR    )                       
+SEPERATOR    {                       
+IDENTIFIER   large                   
+OPERATOR     =                       
+IDENTIFIER   num$                    
+SEPERATOR    ;                       
+SEPERATOR    }                       
+KEYWORD      else                    
+SEPERATOR    {                       
+IDENTIFIER   large                   
+OPERATOR     =                       
+IDENTIFIER   num$                    
+SEPERATOR    ;                       
+SEPERATOR    }                       
