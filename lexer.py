@@ -15,7 +15,7 @@ class Lexer(object):
                 elif (self.current_state in [LexerState.INTEGER, LexerState.REAL]):
                     self.append_to_buffer(char)
                     self.add_to_lexicon(''.join(self.buffer), LexerToken.INVALID)
-                    self.reset()
+                    self.return_to_start()
                 elif (self.current_state == LexerState.ALPHABETIC):
                     self.append_to_buffer(char)
             elif (char.isnumeric()):
@@ -34,11 +34,11 @@ class Lexer(object):
             elif (char in Constants.VALID_SEPERATORS):
                 self.analyse_lexeme(''.join(self.buffer))
                 self.add_to_lexicon(char, LexerToken.SEPERATOR)
-                self.reset()
+                self.return_to_start()
             elif (char in Constants.VALID_OPERATORS):
                 self.analyse_lexeme(''.join(self.buffer))
                 self.add_to_lexicon(char, LexerToken.OPERATOR)
-                self.reset()
+                self.return_to_start()
             elif (char == Constants.COMMENT_START):
                 if (self.current_state == LexerState.COMMENT):
                     self.current_state = LexerState.START
@@ -46,9 +46,9 @@ class Lexer(object):
                     self.current_state = LexerState.COMMENT
             elif (char == '\n' or char == " "):
                 self.analyse_lexeme(''.join(self.buffer))
-                self.reset()
+                self.return_to_start()
 
-    def reset(self):
+    def return_to_start(self):
         if (self.current_state != LexerState.COMMENT):
             self.buffer.clear()
             self.current_state = LexerState.START
