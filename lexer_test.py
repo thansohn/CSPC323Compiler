@@ -1,10 +1,3 @@
-#####################################
-# Name: Tyler Hansohn               #
-# Date: Monday, Feburary 25, 2019   #
-# Class: CSPC 323 Section 1         #
-# Assignment: 1                     #
-#####################################
-
 from lexer import Lexer
 import sys
 
